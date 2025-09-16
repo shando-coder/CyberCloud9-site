@@ -221,3 +221,18 @@ header.masthead .masthead-heading {
   box-shadow: 0 6px 18px rgba(0,0,0,0.1);
   text-decoration: none;
 }
+
+
+
+.service-link {
+  border-radius: 0.5rem;
+  padding: 1rem;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  color: inherit;
+}
+
+.service-link:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  text-decoration: none;
+}
