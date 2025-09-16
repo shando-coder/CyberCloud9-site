@@ -209,3 +209,15 @@ header.masthead .masthead-heading {
     text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
 }
 
+.service-card {
+  border: 1px solid #e0e0e0;
+  border-radius: 0.5rem;
+  background-color: #fff;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.service-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 6px 18px rgba(0,0,0,0.1);
+  text-decoration: none;
+}
