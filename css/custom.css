@@ -253,3 +253,10 @@ header.masthead .masthead-heading {
   background: none !important;
   color: var(--bs-primary);
 }
+#services h3 {
+  background: none !important;
+  color: #1c1c1c !important;  /* dark text */
+  display: block;             /* ensure it’s not inline-block with background */
+  padding: 0 !important;
+  margin: 0 0 0.5rem 0 !important;
+}
