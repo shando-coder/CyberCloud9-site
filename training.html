@@ -18,54 +18,115 @@
   <link href="css/custom.css?v=4" rel="stylesheet" />
   <style>
     .training-card {
-      background: #f8f9fa;
-      border: 1px solid #e9ecef;
+      background: white;
+      border: none;
       border-radius: 8px;
-      padding: 1.5rem;
-      margin-bottom: 1.5rem;
-      border-left: 4px solid #0d6efd;
-      transition: transform 0.2s, box-shadow 0.2s;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 100%;
     }
     .training-card:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
     .training-card h4 {
-      color: #0d6efd;
+      color: #f4623a;
       margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .training-card .emoji {
+      font-size: 2.5rem;
+      margin-bottom: 1rem;
+      display: block;
     }
     .highlight-box {
-      background: linear-gradient(135deg, #fff3cd 0%, #ffeaa7 100%);
-      border: 1px solid #ffc107;
+      background: #f8f9fa;
+      border: 1px solid #dee2e6;
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 2rem;
       margin: 2rem 0;
+      text-align: center;
+    }
+    .highlight-box h4 {
+      color: #f4623a;
+      margin-bottom: 1rem;
     }
     .delivery-option {
       background: white;
-      border: 1px solid #dee2e6;
+      border: none;
       border-radius: 8px;
-      padding: 1.5rem;
+      padding: 2rem;
       height: 100%;
-      transition: transform 0.2s;
+      transition: all 0.3s ease;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      text-align: center;
     }
     .delivery-option:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
     }
     .delivery-option h5 {
-      color: #0d6efd;
+      color: #f4623a;
       margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .delivery-option .emoji {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
     }
     .section-divider {
-      border-top: 3px solid #0d6efd;
+      border-top: 3px solid #f4623a;
       width: 60px;
       margin: 2rem auto;
     }
     .feature-icon {
-      font-size: 2rem;
+      font-size: 3rem;
       margin-bottom: 1rem;
       display: block;
+      color: #f4623a;
+    }
+    .approach-card {
+      background: white;
+      border: none;
+      border-radius: 8px;
+      padding: 2rem;
+      margin-bottom: 2rem;
+      box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+      transition: all 0.3s ease;
+      height: 100%;
+      text-align: center;
+    }
+    .approach-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    .approach-card h4 {
+      color: #f4623a;
+      margin-bottom: 1rem;
+      font-weight: 600;
+    }
+    .approach-card .emoji {
+      font-size: 3rem;
+      margin-bottom: 1rem;
+      display: block;
+    }
+    h2 {
+      color: #212529;
+      font-weight: 600;
+    }
+    .btn-primary {
+      background-color: #f4623a;
+      border-color: #f4623a;
+    }
+    .btn-primary:hover {
+      background-color: #d63384;
+      border-color: #d63384;
+    }
+    .bg-light {
+      background-color: #f8f9fa !important;
     }
   </style>
 </head>
@@ -111,28 +172,37 @@
       <div class="row">
         <div class="col-lg-6">
           <div class="training-card">
-            <h4>🛡️ CyberFirst Training</h4>
-            <p><strong>Defender Level:</strong> Perfect for newcomers to cybersecurity, covering fundamental principles, threat landscapes, and basic defense strategies.</p>
+            <div class="text-center">
+              <span class="emoji">🛡️</span>
+              <h4>CyberFirst-Inspired Training</h4>
+            </div>
+            <p><strong>Foundations Level:</strong> Based on the NCSC CyberFirst programme methodology, perfect for newcomers to cybersecurity and those supporting young learners.</p>
             <ul class="mb-3">
-              <li>Introduction to cybersecurity concepts</li>
-              <li>Common threats and attack vectors</li>
-              <li>Basic incident response procedures</li>
-              <li>Risk assessment fundamentals</li>
+              <li>Building and protecting small networks</li>
+              <li>Personal device security fundamentals</li>
+              <li>Introduction to cyber threats and defenses</li>
+              <li>Practical, hands-on learning approaches</li>
+              <li>Internet of Things (IoT) security basics</li>
             </ul>
             
-            <p><strong>Advanced Level:</strong> For experienced professionals seeking to enhance their expertise with cutting-edge techniques and advanced threat mitigation.</p>
+            <p><strong>Advanced Level:</strong> Drawing from CyberFirst Advanced concepts for educators and professionals working with young people in cybersecurity education.</p>
             <ul>
-              <li>Advanced persistent threats (APTs)</li>
-              <li>Forensic analysis techniques</li>
-              <li>Advanced network security</li>
-              <li>Threat hunting methodologies</li>
+              <li>Advanced threat analysis and prevention</li>
+              <li>Secure software development principles</li>
+              <li>Network security implementation</li>
+              <li>Teaching cybersecurity to young learners</li>
+              <li>Capture the Flag (CTF) challenge design</li>
             </ul>
+            <p class="text-muted"><em>Designed for educators and trainers working with young people aged 14-17 in cybersecurity education.</em></p>
           </div>
         </div>
 
         <div class="col-lg-6">
           <div class="training-card">
-            <h4>👩‍🏫 Train the Trainer Sessions</h4>
+            <div class="text-center">
+              <span class="emoji">👩‍🏫</span>
+              <h4>Train the Trainer Sessions</h4>
+            </div>
             <p>Empower your internal teams to deliver consistent, high-quality cybersecurity training across your organization.</p>
             <ul>
               <li>Adult learning principles in cybersecurity</li>
@@ -148,7 +218,10 @@
 
         <div class="col-lg-6">
           <div class="training-card">
-            <h4>🎯 Bespoke Learning Solutions</h4>
+            <div class="text-center">
+              <span class="emoji">🎯</span>
+              <h4>Bespoke Learning Solutions</h4>
+            </div>
             <p>Customized training programs designed specifically for your organization's unique requirements and industry challenges.</p>
             <ul>
               <li>Industry-specific compliance training</li>
@@ -163,7 +236,10 @@
 
         <div class="col-lg-6">
           <div class="training-card">
-            <h4>🔧 Technical Skills Development</h4>
+            <div class="text-center">
+              <span class="emoji">🔧</span>
+              <h4>Technical Skills Development</h4>
+            </div>
             <p>Hands-on technical training for IT professionals and security teams.</p>
             <ul>
               <li>Penetration testing fundamentals</li>
@@ -178,7 +254,10 @@
 
         <div class="col-lg-6">
           <div class="training-card">
-            <h4>🏢 Executive & Management Training</h4>
+            <div class="text-center">
+              <span class="emoji">🏢</span>
+              <h4>Executive & Management Training</h4>
+            </div>
             <p>Strategic cybersecurity training for leadership teams and decision-makers.</p>
             <ul>
               <li>Cyber risk governance</li>
@@ -193,7 +272,10 @@
 
         <div class="col-lg-6">
           <div class="training-card">
-            <h4>🌟 Specialized Workshops</h4>
+            <div class="text-center">
+              <span class="emoji">🌟</span>
+              <h4>Specialized Workshops</h4>
+            </div>
             <p>Focused sessions addressing specific cybersecurity challenges and emerging threats.</p>
             <ul>
               <li>Social engineering awareness</li>
@@ -221,8 +303,8 @@
       
       <div class="row">
         <div class="col-lg-4 mb-4">
-          <div class="delivery-option text-center">
-            <span class="feature-icon">🏢</span>
+          <div class="delivery-option">
+            <span class="emoji">🏢</span>
             <h5>On-Site Training</h5>
             <p>Training delivered at your premises, allowing for:</p>
             <ul class="text-start">
@@ -235,8 +317,8 @@
         </div>
         
         <div class="col-lg-4 mb-4">
-          <div class="delivery-option text-center">
-            <span class="feature-icon">💻</span>
+          <div class="delivery-option">
+            <span class="emoji">💻</span>
             <h5>Remote Learning</h5>
             <p>Interactive online sessions that provide:</p>
             <ul class="text-start">
@@ -249,8 +331,8 @@
         </div>
         
         <div class="col-lg-4 mb-4">
-          <div class="delivery-option text-center">
-            <span class="feature-icon">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
+          <div class="delivery-option">
+            <span class="emoji">🏴󠁧󠁢󠁳󠁣󠁴󠁿</span>
             <h5>Glasgow Office Training</h5>
             <p>Professional training environment featuring:</p>
             <ul class="text-start">
@@ -276,20 +358,26 @@
       </div>
       
       <div class="row">
-        <div class="col-lg-4 mb-4 text-center">
-          <span class="feature-icon">🎯</span>
-          <h4>Practical Focus</h4>
-          <p>Every session includes hands-on exercises, real-world scenarios, and practical tools that participants can immediately apply in their work environment.</p>
+        <div class="col-lg-4 mb-4">
+          <div class="approach-card">
+            <span class="emoji">🎯</span>
+            <h4>Practical Focus</h4>
+            <p>Every session includes hands-on exercises, real-world scenarios, and practical tools that participants can immediately apply in their work environment.</p>
+          </div>
         </div>
-        <div class="col-lg-4 mb-4 text-center">
-          <span class="feature-icon">🔄</span>
-          <h4>Interactive Learning</h4>
-          <p>Engaging workshops with group discussions, case studies, and collaborative problem-solving to ensure active participation and knowledge retention.</p>
+        <div class="col-lg-4 mb-4">
+          <div class="approach-card">
+            <span class="emoji">🔄</span>
+            <h4>Interactive Learning</h4>
+            <p>Engaging workshops with group discussions, case studies, and collaborative problem-solving to ensure active participation and knowledge retention.</p>
+          </div>
         </div>
-        <div class="col-lg-4 mb-4 text-center">
-          <span class="feature-icon">📊</span>
-          <h4>Measurable Outcomes</h4>
-          <p>Clear learning objectives, progress assessments, and post-training evaluations to ensure training effectiveness and return on investment.</p>
+        <div class="col-lg-4 mb-4">
+          <div class="approach-card">
+            <span class="emoji">📊</span>
+            <h4>Measurable Outcomes</h4>
+            <p>Clear learning objectives, progress assessments, and post-training evaluations to ensure training effectiveness and return on investment.</p>
+          </div>
         </div>
       </div>
 
