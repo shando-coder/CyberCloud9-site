@@ -2,17 +2,17 @@
 const teaching = {
   community: [
     ['What are we protecting?', 'An asset is something you need to keep safe or working. Ask what someone might lose if something goes wrong. It could be control of their account, privacy, or the use of a service.',
-     'In a school library app, your sign-in lets you borrow books in your name. Your borrowing history is private. The app itself needs to work so everyone can borrow. Those are three different assets.',
+     'At a swimming pool, you sign in to change your lane booking. The pool keeps members’ contact details private. Its booking site needs to work so swimmers can reserve a lane. Those are three different assets.',
      'Open each handover card. Decide whether the person needs to protect account access, private details or a service they rely on.'],
     ['A weakness makes harm possible', 'A threat is something that could cause harm. A vulnerability is a weakness that makes that harm easier. The consequence is what could happen as a result.',
      'A sports club leaves its tablet signed in by the door. That is the weakness. A passer-by might use it to cancel a booking. Losing the booking is the consequence. The open tablet alone does not tell you that anyone has used it.',
      'For each crew note, work out what could realistically happen. Read words such as “could” and “definitely” carefully.'],
     ['Being able to do something is different from having permission', 'Permission means the person responsible has agreed that you can do a particular thing. A screen left open may let you press a button, but only the account owner or an authorised person can give you permission to act.',
-     'Someone leaves a school document open on a shared computer. You pause, check that it belongs to someone else, leave their work alone and tell the teacher quietly. That is Stop, Check, Choose, Tell.',
-     'Read Euan’s message. Decide who can give permission and how Isla could get help without changing the booking.'],
+     'Someone leaves a club membership form open on a shared tablet. You pause, check that it belongs to someone else, leave their details alone and quietly tell the club organiser. That is Stop, Check, Choose, Tell.',
+     'Read Euan’s message. Decide who can give permission and how you could get help without changing the booking.'],
     ['Use the smallest safe action', 'When details about another person are visible, protect them by keeping the information with the person or team responsible. Taking a screenshot creates another copy that can spread.',
      'A club laptop displays a member’s phone number. You step away and quietly tell the person running the club. They can close the screen without sending the number to anyone else.',
-     'Look at the reservation. Identify one detail that creates a risk, then choose who can act and what you can safely do.']
+     'Look at the festival booking. Identify one detail that creates a risk, then choose who can act and what you can safely do.']
   ],
   vault: [
     ['Long and unique do different jobs', 'Long passwords are harder to guess. Unique means each account has a different password. This limits the damage if a password is exposed. A password manager can create and remember different passwords for you.',
@@ -22,7 +22,7 @@ const teaching = {
      'A club treasurer uses a unique passphrase, keeps the second check on their own phone and sends recovery messages to a private mailbox they still control. Each setting has a different job.',
      'Choose all three settings. Check that the second sign-in method and the recovery address are controlled by the person responsible for the account.'],
     ['A sign-in code is like a temporary key', 'A verification code can let someone complete a sign-in. Treat it as private, even if a message shows a familiar name or says the code expires soon. Use a contact route you already trust to check the request.',
-     'A message claiming to be from a library worker asks for a code. You ignore the request and call the library using the number on your membership card. If you already shared the code, tell the real service promptly so they can help secure the account.',
+     'A message claiming to be from a sports centre asks for a code. You ignore the request and call the centre using the number on your membership card. If you already shared the code, tell the real service promptly so they can help secure the account.',
      'Choose what Amina should do before sharing a code, then what she should do if it has already been shared.'],
     ['Check who can recover the account', 'Recovery details need to be private, correct and controlled by someone authorised. A sign-in alert tells you something happened. A second sign-in check asks for extra proof before access is allowed.',
      'When a club secretary leaves, their private recovery mailbox can still receive reset messages. The new secretary updates that address through the real club service and keeps the other protections on.',
@@ -35,8 +35,8 @@ const teaching = {
     ['Choose the message, attachment and audience', 'Start with what you want the post to say. Share only the details needed for that purpose. Audience means who can see it. Ask before posting someone else’s photo.',
      'You want to tell two friends you enjoyed a match. You send a short message to those friends. You leave out a photo of a membership card and ask your teammate before sharing a photo of them.',
      'Use the three choices to edit Rowan’s draft. Read the preview as if it had just appeared on your screen.'],
-    ['Pause when someone pushes you to share', 'You can say no, stop replying and ask a trusted adult for help. If an image is hurting someone, use the school’s reporting route and avoid passing it on. If a form asks for private details, check who runs it and why they need them.',
-     'An unfamiliar account offers a school trip prize and asks for a home address. Ask the school office through a route you already know. Wait for an answer before entering any details.',
+    ['Pause when someone pushes you to share', 'You can say no, stop replying and ask a trusted adult for help. If an image is hurting someone, tell a trusted adult or use the chat’s reporting tool and avoid passing it on. If a form asks for private details, check who runs it and why they need them.',
+     'An unfamiliar account offers a free swimming pass and asks for a home address. Contact the swimming pool using a number you already trust. Wait for an answer before entering any details.',
      'Treat each message separately. Choose what protects the people involved and who can help with that particular situation.'],
     ['A private audience can still copy a post', 'A restricted group limits who can see the original. Anyone in the group may still copy it or take a screenshot. Remove unnecessary private information before choosing who can see the post.',
      'A friend shares a photo of a team pass in a small group. Someone saves the photo before it is deleted. The pass can still be seen in the saved copy.',
