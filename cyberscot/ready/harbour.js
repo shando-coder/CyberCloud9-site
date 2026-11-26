@@ -1,7 +1,7 @@
 // Mission 1 uses the same stored decisions as the original help-desk activities.
 const harbourStops=['Help desk','Crew checks','Crew chat','Ticket collection'];
 const shiftNotes=[
-  'The first scan uses the ticket, so the crew advises visitors to keep ticket pictures private. Someone posed as the box office to get Maya’s password. With it, they could sign in as Maya and open her tickets. She reports the message at the desk and keeps her password private. The volunteer contact list stays with the organisers, and the booking site needs to work. These are three different things worth protecting: account access, private information and a working service.',
+  'Isla can take her ticket photo down and ask the box office about replacing the exposed code. Maya keeps her password private because the sender could use it to open her tickets. The organiser needs Rory’s number to change his shift. Visitors just need the gate time. While the website is down, people cannot buy tickets or check stage times and may lose confidence in Clydebeat.',
   'The organiser can now take three useful actions: give volunteers their own sign-ins, restrict the contact sheet and arrange the tablet update. Each action addresses a different weakness.',
   'Mairi’s booking stays as she left it. The supervising adult can secure the session without anyone making a test change. A friend’s suggestion cannot give you permission to use someone else’s account.',
   'The ticket desk supervisor closes the open session before the next visitor uses the desk. You helped the visitor without taking a photo of their private details.'
