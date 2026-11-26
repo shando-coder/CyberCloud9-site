@@ -53,3 +53,12 @@ clydebeat-gate [hidden] {display: none}
 .volunteer-rota li small{display:block;color:#634976}
 .volunteer-rota .rota-initials{display:grid;place-items:center;border-radius:50%;background:#eee6f5;color:#4e3268;font-weight:700;width:2.4rem;height:2.4rem;flex:none}
 .volunteer-rota li:last-child .rota-initials{background:#e1edf4;color:#284d65}
+
+.booking-outage{margin:.85rem 0;border:1px solid #c9bfd3;border-radius:.7rem;overflow:hidden;background:#fff;color:#28203e}
+.outage-address{display:flex;align-items:center;gap:.5rem;padding:.45rem .65rem;background:#eeeaf3;color:#483c56;font-size:.78rem;overflow-wrap:anywhere}
+.outage-address span{color:#786986;white-space:nowrap;font-size:.65rem}
+.outage-brand{padding:.75rem .85rem;background:#342447;color:#fff;font-weight:800;font-size:1.25rem}
+.booking-outage .outage-brand small{color:#eee2fb;font-size:.78rem;font-weight:500}
+.outage-message{padding:1rem .85rem}
+.booking-outage .outage-message small{color:#893d29;font-weight:700}
+.outage-message h4{margin:.45rem 0;font-size:1.15rem}
