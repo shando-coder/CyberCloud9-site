@@ -14,7 +14,7 @@ function shiftEvidence(index){
     handoverCard('Isla’s ticket account','Password message · Box office advice','<strong>What Isla received:</strong> A message from an unknown account asks her to send her ticket password to “confirm” her booking. She has not replied. <strong>Why the account matters:</strong> Anyone who signs in as Isla could change her booking or view her tickets. <strong>How the organiser helps:</strong> The box office tells visitors it will never ask for their password, gives them the official ticket-site address and a secure password-reset route, and helps if a password was shared. Isla should use those official routes and never send her password in a message.')+
     handoverCard('Volunteer contact list','Festival organiser','“I keep volunteers’ names and mobile numbers together so I can tell them if a shift moves. This list is for the organisers who manage the shifts.”')+
     handoverCard('Ticket booking site','Box office · Website down now','<strong>What has happened:</strong> The Clydebeat website is down right now. Visitors cannot read the event information or buy tickets online. Some may think the festival is poorly organised and lose confidence in it.')+'</div></aside>';
-  if(index===1)return '<aside class="desk-evidence"><h3>Three notes from the crew</h3><div class="crew-notes"><p><b>Booking desk</b> Three volunteers use one account. The activity log shows “crew” beside a changed booking.</p><p><b>Contact sheet</b> The volunteer sheet pairs names with mobile numbers. Its link currently opens for anyone.</p><p><b>Gate tablet</b> An update fixes a known fault. The tablet still shows “Update pending”.</p></div><details class="mini-demo"><summary>Try the contact sheet’s sharing setting</summary><p>You are previewing the organiser’s settings. Select an audience to see who would have access.</p><label>Who can open the sheet? <select id="audience-demo"><option value="any">Anyone with the link</option><option value="crew">Named crew members</option></select></label><p id="audience-effect" aria-live="polite">A visitor who receives a forwarded link can open the sheet.</p></details></aside>';
+  if(index===1)return '<aside class="desk-evidence"><h3>Three notes from the crew</h3><div class="crew-notes"><p><b>Booking desk</b> Three volunteers use one account. The activity log shows “crew” beside a changed booking.</p><p><b>Contact sheet</b> The volunteer sheet pairs names with mobile numbers. Its link currently opens for anyone.</p><p><b>Gate tablet</b> An update fixes a known fault. The tablet still shows “Update pending”.</p></div><clydebeat-contact-sheet></clydebeat-contact-sheet></aside>';
   if(index===2)return '<aside class="desk-evidence"><h3>Crew chat</h3><div class="chat-bubble"><b>Euan · to you</b><p>Mairi used the festival’s ticket collection tablet and walked away without signing out. Can you try changing her booking to see if the account is safe? We can change it back.</p></div><details class="mini-demo"><summary>Open your decision card</summary><dl class="decision-card"><dt>Stop</dt><dd>Leave the booking untouched while you decide.</dd><dt>Check</dt><dd>Who owns the account? Who has given permission?</dd><dt>Choose</dt><dd>Choose an action you are allowed to take.</dd><dt>Tell</dt><dd>Who can secure the account without sharing the details?</dd></dl></details></aside>';
   return '<aside class="desk-evidence"><h3>At festival ticket collection</h3><p>Later, a different visitor collects their tickets and walks away. Their festival booking is still open on the shared tablet.</p><div class="booking-slip"><b>Clydebeat ticket booking</b><dl><dt>Visitor</dt><dd>Callum Reid</dd><dt>Home address</dt><dd>8 Harbour Lane, Port Clyde</dd><dt>Session</dt><dd>Signed in · Booking can be changed</dd></dl><small>Fictional booking</small></div><div class="chat-bubble"><b>Euan · beside you</b><p>Can you send me a picture of that?</p></div></aside>';
 }
@@ -24,6 +24,7 @@ class ClydebeatGate extends HTMLElement {
     this.innerHTML = `<section class="desk-evidence" aria-label="Gate scanner activity">
       <h3>Try the gate scanner</h3>
       <p>Isla asks the help desk, “Someone has a screenshot of my ticket. Can we both get in?” Use the crew’s practice scanner to find out. Both tickets show code CB-204.</p>
+      <p><strong>Before you scan:</strong> If the screenshot is scanned first, what do you think Isla will see when she scans her ticket? Make your prediction, then try it.</p>
       <div class="booking-slip"><strong>Harbour Gate · Practice scanner</strong>
         <p role="status" aria-live="polite" data-screen>Scanner ready. Choose which ticket arrives first.</p>
       </div>
@@ -66,3 +67,43 @@ class ClydebeatGate extends HTMLElement {
   }
 }
 customElements.define('clydebeat-gate', ClydebeatGate);
+
+class ClydebeatContactSheet extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `<section aria-label="Volunteer contact list activity">
+      <h3>Who can open the crew list?</h3>
+      <p>A link to the volunteer contact list has landed in a festival visitors’ chat. Open it as a visitor and see what you can find out.</p>
+      <div class="booking-slip">
+        <strong>Visitor’s phone · Festival chat</strong>
+        <p>Forwarded link: Clydebeat volunteer contacts</p>
+        <button type="button" data-open>Open link as a visitor</button>
+        <div role="status" aria-live="polite" aria-atomic="true" data-result></div>
+      </div>
+      <label>Try the organiser’s sharing setting
+        <select data-access disabled>
+          <option value="any">Anyone with the link</option>
+          <option value="crew">Named crew members only</option>
+        </select>
+      </label>
+      <p data-prompt>Open the link once to unlock the sharing setting.</p>
+    </section>`;
+    const access = this.querySelector('[data-access]');
+    const result = this.querySelector('[data-result]');
+    const prompt = this.querySelector('[data-prompt]');
+    this.querySelector('[data-open]').onclick = () => {
+      access.disabled = false;
+      if (access.value === 'any') {
+        result.innerHTML = '<p><strong>List opened.</strong> The visitor can see who is on shift and how to contact them.</p><dl><dt>Fictional volunteer</dt><dd>Rory Kerr · Harbour Gate · 07700 900126</dd><dt>Fictional volunteer</dt><dd>Leila Grant · Box office · 07700 900182</dd></dl>';
+        prompt.textContent = 'Choose “Named crew members only”, then open the same link again.';
+      } else {
+        result.innerHTML = '<p><strong>Access denied.</strong> This visitor is outside the crew. The link still works for named crew members.</p>';
+        prompt.textContent = 'What would you tell the organiser? Changing the setting stops visitors opening the list again. Anyone who already saw it could have saved a copy.';
+      }
+    };
+    access.onchange = () => {
+      result.textContent = 'Sharing setting changed. Open the forwarded link again to see the visitor’s view.';
+      prompt.textContent = 'The visitor still has the same link.';
+    };
+  }
+}
+customElements.define('clydebeat-contact-sheet', ClydebeatContactSheet);
