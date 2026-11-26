@@ -11,7 +11,17 @@ function handoverCard(label,clue,inside){
 }
 function shiftEvidence(index){
   if(index===0)return '<clydebeat-gate></clydebeat-gate><aside class="desk-evidence"><h3>Morning handover</h3><p>The crew also needs help with an unexpected password request, a volunteer list and the booking website. Open each note, then make your recommendations below.</p><div class="handover-grid">'+
-    handoverCard('Password request','Box office · Visitor enquiry','Maya came to our desk after getting this message: “Clydebeat Box Office here. Send us your password to keep your booking.” We didn’t send it. Maya hasn’t replied or shared her password.')+
+    `<details class="handover"><summary>Password request<small>Box office · Email shown by Maya</small></summary>
+      <article aria-label="Email received by Maya" style="margin:.75rem;padding:1rem;background:#fff;color:#28203e;border:1px solid #cbc7d7;border-radius:.6rem;overflow-wrap:anywhere">
+        <div style="color:#57456e;font-weight:bold">✉ &nbsp; Maya’s inbox</div>
+        <h4 style="margin:.75rem 0">Please confirm your festival booking</h4>
+        <div><strong>From</strong> &nbsp; Clydebeat Box Office<br><small>bookings@ticket-check.example</small></div>
+        <div style="padding-bottom:.65rem;border-bottom:1px solid #d8d4df"><strong>To</strong> &nbsp; Maya</div>
+        <p>Hi Maya,</p><p>We’re checking tickets before the festival opens. Please reply with your Clydebeat account password so we can keep your booking active.</p>
+        <p>Thanks,<br>Clydebeat Box Office</p>
+      </article>
+      <p><strong>Help desk note</strong><br>Maya showed us this email before replying. We didn’t send it. What is the sender trying to get, and what should Maya do?</p>
+    </details>`+
     handoverCard('Volunteer contact list','Festival organiser','“I keep volunteers’ names and mobile numbers together so I can tell them if a shift moves. This list is for the organisers who manage the shifts.”')+
     handoverCard('Ticket booking site','Box office · Website down now','<strong>What has happened:</strong> The Clydebeat website is down right now. Visitors cannot read the event information or buy tickets online. Some may think the festival is poorly organised and lose confidence in it.')+'</div></aside>';
   if(index===1)return '<aside class="desk-evidence"><h3>Three notes from the crew</h3><div class="crew-notes"><p><b>Booking desk</b> Three volunteers use one account. The activity log shows “crew” beside a changed booking.</p><p><b>Contact sheet</b> The volunteer sheet pairs names with mobile numbers. Its link currently opens for anyone.</p><p><b>Gate tablet</b> An update fixes a known fault. The tablet still shows “Update pending”.</p></div><clydebeat-contact-sheet></clydebeat-contact-sheet></aside>';
