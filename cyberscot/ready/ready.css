@@ -86,3 +86,5 @@ clydebeat-gate [hidden] {display: none}
 .mock-bubble{background:#ece6f5;border-radius:1rem 1rem 1rem .2rem;padding:.7rem .9rem;margin:.6rem 0}.mock-bubble p{margin:0}
 .sample-pass{display:flex;justify-content:space-between;gap:.5rem;align-items:center;border:1px dashed #977caa;border-radius:.6rem;padding:.65rem;background:#fff6ed}.sample-pass b{display:block}
 .post-photo{margin:.5rem 0}.post-photo img{width:100%;height:10rem;object-fit:cover;object-position:center 58%;border-radius:.55rem}.post-photo figcaption{font-size:.85rem}
+
+.rowan-photo{display:block;width:100%;height:auto;border-radius:.45rem}.insta-author{display:flex;align-items:center;gap:.55rem;margin:.5rem 0}.insta-author b{display:grid;place-items:center;width:2rem;height:2rem;border-radius:50%;background:#684272;color:white}

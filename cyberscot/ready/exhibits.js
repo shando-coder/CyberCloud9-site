@@ -18,10 +18,11 @@ function accountPreview(step, record) {
   const defaults=['Reused password','Off','Public profile'];
   return screen('Clydebeat staff account','Niamh’s security settings',accountRows(['Password','Second sign-in check','Recovery email'],step.questions.map((q,i)=>q.options[record.choices[i]]??defaults[i])));
 }
+const rowanPhoto = '<img class="rowan-photo" width="920" height="920" src="rowan-at-home.webp" alt="Rowan smiles at home, holding up a phone. Her Clydebeat day pass shows an entry QR code and the mobile number 07700 900164.">';
 function socialPreview(step, record) {
   const [caption,attachment,audience]=record.choices;
-  const media=attachment===0?ticketImage+'<p>Mobile on ticket: 07700 900 164</p>':attachment===1?festivalPhoto:'';
-  return screen('Festival feed · Draft','Rowan’s post','<small>'+ (step.questions[2].options[audience]??'Choose an audience')+'</small><p>'+(step.questions[0].options[caption]??'Choose a caption below.')+'</p>'+media+'<small>'+(step.questions[1].options[attachment]??'Choose an attachment below.')+'</small>');
+  const media=attachment===0?rowanPhoto:attachment===1?festivalPhoto:'';
+  return screen('Instagram · Draft','Rowan’s post','<small>'+ (step.questions[2].options[audience]??'Choose an audience')+'</small><p>'+(step.questions[0].options[caption]??'Choose a caption below.')+'</p>'+media+'<small>'+(step.questions[1].options[attachment]??'Choose an attachment below.')+'</small>');
 }
 function missionExhibit(id, index, step, record) {
   let exhibit;
@@ -35,7 +36,7 @@ function missionExhibit(id, index, step, record) {
     exhibit=screens[index]();
   } else {
     const screens=[
-      ()=>screen('Festival feed · Draft','Rowan’s post','<p>Festival tonight! Home alone at 14 Shore Road until eight.</p>'+reveal('View ticket screenshot',ticketImage+'<p>Rowan’s mobile: 07700 900 164</p>')+reveal('View festival photo',festivalPhoto+'<p>Euan is in Rowan’s photo.</p>')),
+      ()=>screen('Instagram · Unpublished draft','Rowan’s post','<div class="insta-author"><b aria-hidden="true">R</b><strong>rowan</strong></div>'+rowanPhoto+'<p><strong>rowan</strong> Festival tonight! Can’t wait 🎶 I’m home alone getting ready if anyone wants to pop down. 14 Shore Road!</p>'+reveal('Look closer at the phone','<p>The day pass on Rowan’s screen shows her entry QR code. Underneath it you can read her mobile number: 07700 900164.</p>')),
       ()=>socialPreview(step,record),
       ()=>screen('Rowan’s phone','After the show',reveal('Direct message · Game friend',bubble('Game friend','Share your live location so I can find you. Come on, just switch it on!'))+reveal('Group chat · Festival friends',bubble('Festival friends','Someone posted a hurtful edit of Euan’s photo. Another person is asking for a copy.'))+reveal('Prize message · Entry form','<b>Win a Clydebeat prize!</b>'+accountRows(['Date of birth','Home address'],['Required','Required'])+'<p>No details about the draw are shown.</p>')),
       ()=>screen('Festival friends · Private group','Isla’s draft','<p>Collect my spare pass!</p>'+reveal('Inspect the attached photo',festivalPhoto+ticketImage+'<p>The ticket code and a friend’s face are both visible in Isla’s photo.</p>')+bubble('Friend','Want me to forward this to my other groups?'))
