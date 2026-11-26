@@ -43,3 +43,13 @@
 .gate-phone[data-state="accepted"] .gate-result::after {content: '✓'}
 .gate-phone[data-state="used"] .gate-result::after {content: '×'}
 clydebeat-gate [hidden] {display: none}
+
+.volunteer-rota{margin:.85rem 0;background:#fff;color:#28203e;border:1px solid #cfbfdc;border-radius:.75rem;overflow:hidden}
+.volunteer-rota .rota-heading{background:#45345b;color:white;padding:.7rem .85rem}
+.volunteer-rota .rota-heading small{display:block;color:#eee4f7}
+.volunteer-rota ul{list-style:none;padding:0;margin:0}
+.volunteer-rota li{display:flex;align-items:center;gap:.65rem;padding:.7rem .85rem;margin:0}
+.volunteer-rota li+li{border-top:1px solid #e8dfed}
+.volunteer-rota li small{display:block;color:#634976}
+.volunteer-rota .rota-initials{display:grid;place-items:center;border-radius:50%;background:#eee6f5;color:#4e3268;font-weight:700;width:2.4rem;height:2.4rem;flex:none}
+.volunteer-rota li:last-child .rota-initials{background:#e1edf4;color:#284d65}
