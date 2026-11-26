@@ -1,7 +1,7 @@
 // Mission 1 uses the same stored decisions as the original help-desk activities.
 const harbourStops=['Help desk','Crew checks','Crew chat','Ticket collection'];
 const shiftNotes=[
-  'Isla keeps her ticket password private and uses the official sign-in or reset route. The organiser supports account security by giving safe guidance and never asking for passwords. The volunteer contact list stays with the organisers, and the booking site needs to work. These are three different things worth protecting: account access, private information and a working service.',
+  'The first scan uses the ticket, so the crew advises visitors to keep ticket pictures private. Isla keeps her ticket password private and uses the official sign-in or reset route. The organiser supports account security by giving safe guidance and never asking for passwords. The volunteer contact list stays with the organisers, and the booking site needs to work. These are three different things worth protecting: account access, private information and a working service.',
   'The organiser can now take three useful actions: give volunteers their own sign-ins, restrict the contact sheet and arrange the tablet update. Each action addresses a different weakness.',
   'Mairi’s booking stays as she left it. The supervising adult can secure the session without anyone making a test change. A friend’s suggestion cannot give you permission to use someone else’s account.',
   'The ticket desk supervisor closes the open session before the next visitor uses the desk. You helped the visitor without taking a photo of their private details.'
@@ -10,7 +10,7 @@ function handoverCard(label,clue,inside){
   return '<details class="handover"><summary>'+label+'<small>'+clue+'</small></summary><p>'+inside+'</p></details>';
 }
 function shiftEvidence(index){
-  if(index===0)return '<clydebeat-gate></clydebeat-gate><aside class="desk-evidence"><h3>Morning handover</h3><p>Open a card to hear what each person needs.</p><div class="handover-grid">'+
+  if(index===0)return '<clydebeat-gate></clydebeat-gate><aside class="desk-evidence"><h3>Morning handover</h3><p>The crew also needs help with an unexpected password request, a volunteer list and the booking website. Open each note, then make your recommendations below.</p><div class="handover-grid">'+
     handoverCard('Isla’s ticket account','Password message · Box office advice','<strong>What Isla received:</strong> A message from an unknown account asks her to send her ticket password to “confirm” her booking. She has not replied. <strong>Why the account matters:</strong> Anyone who signs in as Isla could change her booking or view her tickets. <strong>How the organiser helps:</strong> The box office tells visitors it will never ask for their password, gives them the official ticket-site address and a secure password-reset route, and helps if a password was shared. Isla should use those official routes and never send her password in a message.')+
     handoverCard('Volunteer contact list','Festival organiser','“I keep volunteers’ names and mobile numbers together so I can tell them if a shift moves. This list is for the organisers who manage the shifts.”')+
     handoverCard('Ticket booking site','Box office · Website down now','<strong>What has happened:</strong> The Clydebeat website is down right now. Visitors cannot read the event information or buy tickets online. Some may think the festival is poorly organised and lose confidence in it.')+'</div></aside>';
@@ -22,8 +22,8 @@ function shiftEvidence(index){
 class ClydebeatGate extends HTMLElement {
   connectedCallback() {
     this.innerHTML = `<section class="desk-evidence" aria-label="Gate scanner activity">
-      <h3>Try the gate scanner</h3>
-      <p>Isla asks the help desk, “Someone has a screenshot of my ticket. Can we both get in?” Use the crew’s practice scanner to find out. Both tickets show code CB-204.</p>
+      <h3>Is it safe to post my ticket?</h3>
+      <p>Isla tells the box office, “I want to show my friends I’m going to Clydebeat. Is it OK to post a picture of my ticket?” She hasn’t posted it yet. The gate supervisor gives you a test ticket and a screenshot of it. Try both at the practice gate so you can explain your advice to Isla.</p>
       <p><strong>Before you scan:</strong> If the screenshot is scanned first, what do you think Isla will see when she scans her ticket? Make your prediction, then try it.</p>
       <div class="gate-phone" data-state="ready">
         <div class="gate-sensor" aria-hidden="true"></div>
@@ -42,6 +42,7 @@ class ClydebeatGate extends HTMLElement {
         <button type="button" data-ticket="copy">Scan the screenshot</button>
         <button type="button" class="subtle" data-replay hidden>Try the other order</button>
       </div>
+      <fieldset data-advice hidden><legend>What should the box office tell Isla?</legend><button type="button" data-choice="group">Share the ticket in a private group</button> <button type="button" data-choice="text">Post a message about going and leave the ticket out</button><p role="status" data-reply></p></fieldset>
     </section>`;
     const screen = this.querySelector('[data-screen]');
     const tickets = Array.from(this.querySelectorAll('[data-ticket]'));
@@ -51,6 +52,15 @@ class ClydebeatGate extends HTMLElement {
     function showState(state, title) {
       phone.dataset.state = state;
       heading.textContent = title;
+    }
+    const advice = this.querySelector('[data-advice]');
+    const reply = advice.querySelector('[data-reply]');
+    for (const choice of advice.querySelectorAll('button')) {
+      choice.onclick = () => {
+        reply.textContent = choice.dataset.choice === 'text'
+          ? 'Isla posts “See you at Clydebeat!” Her friends know she’s going and her entry code stays private. Now check the rest of the morning handover.'
+          : 'A friend could still save or forward the picture. Think about what happened at the gate when you scanned the same code twice. Try again.';
+      };
     }
     let scans = 0;
     for (const button of tickets) {
@@ -70,11 +80,14 @@ class ClydebeatGate extends HTMLElement {
             ? 'Already used. Isla has the original ticket, but the screenshot was scanned first. The gate volunteer refers Isla to the box office.'
             : 'Already used. Isla got in first, so the visitor with the screenshot is turned away. Both versions carry the same code.';
           replay.hidden = false;
-          replay.focus();
+          advice.hidden = false;
+          advice.querySelector('button').focus();
         }
       };
     }
     replay.onclick = () => {
+      advice.hidden = true;
+      reply.textContent = '';
       scans = 0;
       showState('ready', 'Ready to scan');
       for (const button of tickets) button.disabled = false;
