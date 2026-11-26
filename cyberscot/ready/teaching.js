@@ -2,7 +2,7 @@
 const teaching = {
   community: [
     ['What are we protecting?', 'An asset is something you need to keep safe or working. Ask what someone might lose if something goes wrong. It could be control of their account, privacy, or the use of a service.',
-     'At a swimming pool, you sign in to change your lane booking. The pool keeps members’ contact details private. Its booking site needs to work so swimmers can reserve a lane. Those are three different assets.',
+     'In a multiplayer game, you sign in to join your team’s tournament. You protect access to your game account, keep your friends’ messages private, and rely on the game servers working so your team can play. Those are three different things worth protecting.',
      'Open each handover card. Decide whether the person needs to protect account access, private details or a service they rely on.'],
     ['A weakness makes harm possible', 'A threat is something that could cause harm. A vulnerability is a weakness that makes that harm easier. The consequence is what could happen as a result.',
      'A sports club leaves its tablet signed in by the door. That is the weakness. A passer-by might use it to cancel a booking. Losing the booking is the consequence. The open tablet alone does not tell you that anyone has used it.',
@@ -36,7 +36,7 @@ const teaching = {
      'You want to tell two friends you enjoyed a match. You send a short message to those friends. You leave out a photo of a membership card and ask your teammate before sharing a photo of them.',
      'Use the three choices to edit Rowan’s draft. Read the preview as if it had just appeared on your screen.'],
     ['Pause when someone pushes you to share', 'You can say no, stop replying and ask a trusted adult for help. If an image is hurting someone, tell a trusted adult or use the chat’s reporting tool and avoid passing it on. If a form asks for private details, check who runs it and why they need them.',
-     'An unfamiliar account offers a free swimming pass and asks for a home address. Contact the swimming pool using a number you already trust. Wait for an answer before entering any details.',
+     'A game chat message offers a free rare skin and asks for your game password. Do not follow its link or share the password. Open the game’s official store yourself or ask a trusted adult to help check the offer.',
      'Treat each message separately. Choose what protects the people involved and who can help with that particular situation.'],
     ['A private audience can still copy a post', 'A restricted group limits who can see the original. Anyone in the group may still copy it or take a screenshot. Remove unnecessary private information before choosing who can see the post.',
      'A friend shares a photo of a team pass in a small group. Someone saves the photo before it is deleted. The pass can still be seen in the saved copy.',
