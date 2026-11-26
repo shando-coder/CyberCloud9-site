@@ -10,7 +10,7 @@ function handoverCard(label,clue,inside){
   return '<details class="handover"><summary>'+label+'<small>'+clue+'</small></summary><p>'+inside+'</p></details>';
 }
 function shiftEvidence(index){
-  if(index===0)return '<aside class="desk-evidence"><h3>Morning handover</h3><p>Open a card to hear what each person needs.</p><div class="handover-grid">'+
+  if(index===0)return '<clydebeat-gate></clydebeat-gate><aside class="desk-evidence"><h3>Morning handover</h3><p>Open a card to hear what each person needs.</p><div class="handover-grid">'+
     handoverCard('Isla’s ticket account','Password message · Box office advice','<strong>What Isla received:</strong> A message from an unknown account asks her to send her ticket password to “confirm” her booking. She has not replied. <strong>Why the account matters:</strong> Anyone who signs in as Isla could change her booking or view her tickets. <strong>How the organiser helps:</strong> The box office tells visitors it will never ask for their password, gives them the official ticket-site address and a secure password-reset route, and helps if a password was shared. Isla should use those official routes and never send her password in a message.')+
     handoverCard('Volunteer contact list','Festival organiser','“I keep volunteers’ names and mobile numbers together so I can tell them if a shift moves. This list is for the organisers who manage the shifts.”')+
     handoverCard('Ticket booking site','Box office · Website down now','<strong>What has happened:</strong> The Clydebeat website is down right now. Visitors cannot read the event information or buy tickets online. Some may think the festival is poorly organised and lose confidence in it.')+'</div></aside>';
@@ -18,3 +18,51 @@ function shiftEvidence(index){
   if(index===2)return '<aside class="desk-evidence"><h3>Crew chat</h3><div class="chat-bubble"><b>Euan · to you</b><p>Mairi used the festival’s ticket collection tablet and walked away without signing out. Can you try changing her booking to see if the account is safe? We can change it back.</p></div><details class="mini-demo"><summary>Open your decision card</summary><dl class="decision-card"><dt>Stop</dt><dd>Leave the booking untouched while you decide.</dd><dt>Check</dt><dd>Who owns the account? Who has given permission?</dd><dt>Choose</dt><dd>Choose an action you are allowed to take.</dd><dt>Tell</dt><dd>Who can secure the account without sharing the details?</dd></dl></details></aside>';
   return '<aside class="desk-evidence"><h3>At festival ticket collection</h3><p>Later, a different visitor collects their tickets and walks away. Their festival booking is still open on the shared tablet.</p><div class="booking-slip"><b>Clydebeat ticket booking</b><dl><dt>Visitor</dt><dd>Callum Reid</dd><dt>Home address</dt><dd>8 Harbour Lane, Port Clyde</dd><dt>Session</dt><dd>Signed in · Booking can be changed</dd></dl><small>Fictional booking</small></div><div class="chat-bubble"><b>Euan · beside you</b><p>Can you send me a picture of that?</p></div></aside>';
 }
+
+class ClydebeatGate extends HTMLElement {
+  connectedCallback() {
+    this.innerHTML = `<section class="desk-evidence" aria-label="Gate scanner activity">
+      <h3>Try the gate scanner</h3>
+      <p>Isla asks the help desk, “Someone has a screenshot of my ticket. Can we both get in?” Use the crew’s practice scanner to find out. Both tickets show code CB-204.</p>
+      <div class="booking-slip"><strong>Harbour Gate · Practice scanner</strong>
+        <p role="status" aria-live="polite" data-screen>Scanner ready. Choose which ticket arrives first.</p>
+      </div>
+      <div class="bar">
+        <button type="button" data-ticket="original">Scan Isla’s ticket</button>
+        <button type="button" data-ticket="copy">Scan the screenshot</button>
+        <button type="button" class="subtle" data-replay hidden>Try the other order</button>
+      </div>
+    </section>`;
+    const screen = this.querySelector('[data-screen]');
+    const tickets = Array.from(this.querySelectorAll('[data-ticket]'));
+    const replay = this.querySelector('[data-replay]');
+    let scans = 0;
+    for (const button of tickets) {
+      button.onclick = () => {
+        const isla = button.dataset.ticket === 'original';
+        button.disabled = true;
+        scans += 1;
+        if (scans === 1) {
+          screen.textContent = isla
+            ? 'Entry allowed. Isla gets in. The scanner marks CB-204 as used. Now scan the screenshot.'
+            : 'Entry allowed. The visitor with the screenshot gets in. The scanner marks CB-204 as used. Now scan Isla’s ticket.';
+          tickets.find(ticket => !ticket.disabled).focus();
+        } else {
+          screen.textContent = isla
+            ? 'Already used. Isla has the original ticket, but the screenshot was scanned first. The gate volunteer refers Isla to the box office.'
+            : 'Already used. Isla got in first, so the visitor with the screenshot is turned away. Both versions carry the same code.';
+          replay.hidden = false;
+          replay.focus();
+        }
+      };
+    }
+    replay.onclick = () => {
+      scans = 0;
+      for (const button of tickets) button.disabled = false;
+      replay.hidden = true;
+      screen.textContent = 'Scanner reset. Try sending the other ticket through first.';
+      tickets[0].focus();
+    };
+  }
+}
+customElements.define('clydebeat-gate', ClydebeatGate);
