@@ -3,7 +3,7 @@ const teaching = {
   community: [
     ['What are we protecting?', 'An asset is something you need to keep safe or working. Ask what someone might lose if something goes wrong. It could be control of their account, privacy, or the use of a service.',
      'Before Clydebeat opens, the crew has three things to protect: a staff login that lets authorised crew change bookings; a private list of volunteers’ names and phone numbers; and ticket scanners that need to work so visitors can get in. Each matters for a different reason: controlling access, keeping personal details private, and keeping a service working. In cyber security, a valuable thing that needs protecting is called an asset.',
-     'Open each handover card. Decide whether the person needs to protect account access, private details or a service they rely on.'],
+     'Use the test ticket at Harbour Gate to decide what the box office should tell Isla. Then open the handover cards and advise the crew on the other risks.'],
     ['A weakness makes harm possible', 'A threat is something that could cause harm. A vulnerability is a weakness that makes that harm easier. The consequence is what could happen as a result.',
      'A sports club leaves its tablet signed in by the door. That is the weakness. A passer-by might use it to cancel a booking. Losing the booking is the consequence. The open tablet alone does not tell you that anyone has used it.',
      'For each crew note, work out what could realistically happen. Read words such as “could” and “definitely” carefully.'],
