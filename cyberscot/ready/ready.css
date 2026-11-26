@@ -62,3 +62,14 @@ clydebeat-gate [hidden] {display: none}
 .outage-message{padding:1rem .85rem}
 .booking-outage .outage-message small{color:#893d29;font-weight:700}
 .outage-message h4{margin:.45rem 0;font-size:1.15rem}
+
+#view > .hero:first-child{border:0;background:linear-gradient(90deg,#2a2039 15%,#30243ef0 44%,#30243e33 85%),url('harbour.webp') center/cover;min-height:15rem;display:flex;flex-direction:column;justify-content:center}
+#view > .hero:first-child p{max-width:min(48ch,58%)}
+.cards .card{--accent:#593a7c;background:linear-gradient(130deg,#f0e9f7,white 62%);border-top:4px solid var(--accent);box-shadow:0 6px 18px #3420460a}
+.cards .card:nth-child(even){--accent:#31576d;background:linear-gradient(130deg,#e2eef3,white 62%)}
+.cards .card .kicker{color:var(--accent)}
+.cards .card .btn{background:var(--accent);color:white}
+.activity-nav button{border-radius:.8rem;min-height:3.4rem}
+.activity-nav button[aria-current]{background:#45305e;color:white;box-shadow:none}
+.activity-nav button[aria-current] span{background:#eee6f5;color:#372449}
+@media(max-width:42rem){#view > .hero:first-child{padding-top:9rem;background:linear-gradient(0deg,#292039 36%,#292039d9 56%,transparent 82%),url('harbour.webp') center top/cover}#view > .hero:first-child p{max-width:100%}}
