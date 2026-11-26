@@ -27,7 +27,7 @@ function missionExhibit(id, index, step, record) {
   let exhibit;
   if (id==='vault') {
     const screens=[
-      ()=>screen('Mail · Security notice','Notice from the games service','<small>To Amina</small><p>Some players’ passwords have been exposed. Please review the accounts where you use your games password.</p>'+reveal('Compare Amina’s two accounts',accountRows(['Games account','Clydebeat tickets'],['Uses Amina’s games passphrase','Uses the same passphrase']))),
+      ()=>screen('Mail · Security notice','Notice from XBLOCKS Games Inc','<small>To Amina</small><p>Some players’ passwords have been exposed. Please review the accounts where you use your games password.</p>'+reveal('Compare Amina’s two accounts',accountRows(['Games account','Clydebeat tickets'],['Uses Amina’s games passphrase','Uses the same passphrase']))),
       ()=>accountPreview(step,record),
       ()=>screen('Messages · Amina','A message from a familiar name',bubble('Festival helper','Amina, your ticket needs fixed. Read me the six digits that just appeared.')+reveal('Read the sign-in notification',bubble('Clydebeat accounts','A sign-in was requested. Your practice code is 438 205. Only use it for a sign-in you started.'))+'<p><b>Amina</b> · “I haven’t tried to sign in today.”</p>'),
       ()=>screen('Clydebeat staff account','Volunteer coordinator',accountRows(['Password','Two-step verification','Sign-in alerts'],['Unique to this account','On','On'])+reveal('Inspect recovery email',accountRows(['Visible to','Mailbox owner'],['Only the account owner','Previous volunteer coordinator'])))
