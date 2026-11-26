@@ -57,8 +57,8 @@ const lessonTakeaway = {
     'Updating the recovery address gives the current team control. Alerts help people notice activity and the extra sign-in check helps prevent unauthorised access.'
   ],
   footprint: [
-    'An address and a time can reveal where someone will be. A phone number gives strangers a contact route and the QR could be used as a ticket.',
-    'The edited draft still tells friends Rowan is excited. It keeps the ticket and contact details private and gives Euan a say in whether his photo is shared.',
+    'Rowan stops before tapping Share and keeps the post in her drafts. Her new address, mobile number and ticket code are still private. Now help her edit the draft.',
+    'The edited post is still a draft. It tells friends Rowan is excited. It keeps the ticket and contact details private and gives Euan a say in whether his photo is shared.',
     'Each response limits the spread of private information and gets help from someone who can act. Checking the prize first avoids sharing details with an unverified organiser.',
     'A text-only offer gives the group what it needs. Using the official transfer keeps the entry code out of posts and screenshots.'
   ]
