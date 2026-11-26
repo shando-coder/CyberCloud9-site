@@ -25,9 +25,18 @@ class ClydebeatGate extends HTMLElement {
       <h3>Try the gate scanner</h3>
       <p>Isla asks the help desk, “Someone has a screenshot of my ticket. Can we both get in?” Use the crew’s practice scanner to find out. Both tickets show code CB-204.</p>
       <p><strong>Before you scan:</strong> If the screenshot is scanned first, what do you think Isla will see when she scans her ticket? Make your prediction, then try it.</p>
-      <div class="booking-slip"><strong>Harbour Gate · Practice scanner</strong>
-        <p role="status" aria-live="polite" data-screen>Scanner ready. Choose which ticket arrives first.</p>
+      <div class="gate-phone" data-state="ready">
+        <div class="gate-sensor" aria-hidden="true"></div>
+        <div class="gate-top"><b>Clydebeat</b><span>Harbour Gate</span></div>
+        <div class="gate-lens" aria-hidden="true">
+          <div class="gate-frame"><img width="116" height="116" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAHQAAAB0AQAAAAB84SuKAAAAt0lEQVR4nOWUuw3DQAxDH4P01AbefyxvoJuAKZwin8ZWmbARBOiB0gE8hVetG+/6g15SLZWkGvFOoNvJwP8OyOCjTO8pXZv/7E3N+TRtSM/4JVFHGb1fgFXOdH+xREBD3kVvUK66zpPQBjrupAe8nbYT4+v8DdhVNLX3yfkP/yShcWew/x0Etr1Q5vnTyjbJzzN/+wb7Sb8v/tDa6DHvRnT1iA+lEGrgryDwogFf//+f+Ts9/2v9AxlZToEMLsOqAAAAAElFTkSuQmCC" alt=""><i></i></div>
+        </div>
+        <div class="gate-result" aria-hidden="true"></div>
+        <div class="gate-display"><strong data-head>Ready to scan</strong>
+          <span>Festival day pass · CB-204</span></div>
+        <div class="gate-home" aria-hidden="true"></div>
       </div>
+      <p role="status" aria-live="polite" data-screen>Choose which ticket arrives first.</p>
       <div class="bar">
         <button type="button" data-ticket="original">Scan Isla’s ticket</button>
         <button type="button" data-ticket="copy">Scan the screenshot</button>
@@ -37,6 +46,12 @@ class ClydebeatGate extends HTMLElement {
     const screen = this.querySelector('[data-screen]');
     const tickets = Array.from(this.querySelectorAll('[data-ticket]'));
     const replay = this.querySelector('[data-replay]');
+    const phone = this.querySelector('.gate-phone');
+    const heading = phone.querySelector('[data-head]');
+    function showState(state, title) {
+      phone.dataset.state = state;
+      heading.textContent = title;
+    }
     let scans = 0;
     for (const button of tickets) {
       button.onclick = () => {
@@ -44,11 +59,13 @@ class ClydebeatGate extends HTMLElement {
         button.disabled = true;
         scans += 1;
         if (scans === 1) {
+          showState('accepted', 'Welcome!');
           screen.textContent = isla
             ? 'Entry allowed. Isla gets in. The scanner marks CB-204 as used. Now scan the screenshot.'
             : 'Entry allowed. The visitor with the screenshot gets in. The scanner marks CB-204 as used. Now scan Isla’s ticket.';
           tickets.find(ticket => !ticket.disabled).focus();
         } else {
+          showState('used', 'Already used');
           screen.textContent = isla
             ? 'Already used. Isla has the original ticket, but the screenshot was scanned first. The gate volunteer refers Isla to the box office.'
             : 'Already used. Isla got in first, so the visitor with the screenshot is turned away. Both versions carry the same code.';
@@ -59,6 +76,7 @@ class ClydebeatGate extends HTMLElement {
     }
     replay.onclick = () => {
       scans = 0;
+      showState('ready', 'Ready to scan');
       for (const button of tickets) button.disabled = false;
       replay.hidden = true;
       screen.textContent = 'Scanner reset. Try sending the other ticket through first.';
