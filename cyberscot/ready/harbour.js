@@ -6,9 +6,6 @@ const shiftNotes=[
   'Mairi’s booking stays as she left it. The supervising adult can secure the session without anyone making a test change. A friend’s suggestion cannot give you permission to use someone else’s account.',
   'The ticket desk supervisor closes the open session before the next visitor uses the desk. You helped the visitor without taking a photo of their private details.'
 ];
-function handoverCard(label,clue,inside){
-  return '<details class="handover"><summary>'+label+'<small>'+clue+'</small></summary><p>'+inside+'</p></details>';
-}
 function volunteerContactList(){
   return `<section class="volunteer-rota" aria-label="Clydebeat volunteer contact list">
     <div class="rota-heading"><strong>Clydebeat crew</strong><small>Opening day · Shift contacts</small></div>
@@ -32,7 +29,17 @@ function shiftEvidence(index){
       <p><strong>Help desk note</strong><br>Maya showed us this email before replying. We didn’t send it. What is the sender trying to get, and what should Maya do?</p>
     </details>`+
     '<details class="handover"><summary>Volunteer contact list<small>Festival organiser · Opening day</small></summary>'+volunteerContactList()+'<p><strong>Organiser’s note</strong><br>“If the Harbour Gate opens early, I need to ring Rory to change his shift. Who else needs to see his mobile number?”</p></details>'+
-    handoverCard('Ticket booking site','Box office · Website down now','<strong>What has happened:</strong> The Clydebeat website is down right now. Visitors cannot read the event information or buy tickets online. Some may think the festival is poorly organised and lose confidence in it.')+'</div></aside>';
+    `<details class="handover"><summary>Ticket booking site<small>Box office · Visitor’s screen</small></summary>
+      <section class="booking-outage" aria-label="Preview of the Clydebeat website during the outage">
+        <div class="outage-address"><span aria-hidden="true">● ● ●</span> clydebeat.example/tickets</div>
+        <div class="outage-brand">Clydebeat <small>Port Clyde Music Festival</small></div>
+        <div class="outage-message"><small>Error 503 · Service unavailable</small>
+          <h4>Our website is down</h4>
+          <p>Ticket sales and festival information are currently unavailable. Please try again later.</p>
+        </div>
+      </section>
+      <p><strong>Box office note</strong><br>“One visitor wanted to buy a ticket. Another wanted to check the stage times. Both saw this page. If it stays like this, how might they feel about coming to Clydebeat?”</p>
+    </details></div></aside>`;
   if(index===1)return '<aside class="desk-evidence"><h3>Three notes from the crew</h3><div class="crew-notes"><p><b>Booking desk</b> Three volunteers use one account. The activity log shows “crew” beside a changed booking.</p><p><b>Contact sheet</b> The volunteer sheet pairs names with mobile numbers. Its link currently opens for anyone.</p><p><b>Gate tablet</b> An update fixes a known fault. The tablet still shows “Update pending”.</p></div><clydebeat-contact-sheet></clydebeat-contact-sheet></aside>';
   if(index===2)return '<aside class="desk-evidence"><h3>Crew chat</h3><div class="chat-bubble"><b>Euan · to you</b><p>Mairi used the festival’s ticket collection tablet and walked away without signing out. Can you try changing her booking to see if the account is safe? We can change it back.</p></div><details class="mini-demo"><summary>Open your decision card</summary><dl class="decision-card"><dt>Stop</dt><dd>Leave the booking untouched while you decide.</dd><dt>Check</dt><dd>Who owns the account? Who has given permission?</dd><dt>Choose</dt><dd>Choose an action you are allowed to take.</dd><dt>Tell</dt><dd>Who can secure the account without sharing the details?</dd></dl></details></aside>';
   return '<aside class="desk-evidence"><h3>At festival ticket collection</h3><p>Later, a different visitor collects their tickets and walks away. Their festival booking is still open on the shared tablet.</p><div class="booking-slip"><b>Clydebeat ticket booking</b><dl><dt>Visitor</dt><dd>Callum Reid</dd><dt>Home address</dt><dd>8 Harbour Lane, Port Clyde</dd><dt>Session</dt><dd>Signed in · Booking can be changed</dd></dl><small>Fictional booking</small></div><div class="chat-bubble"><b>Euan · beside you</b><p>Can you send me a picture of that?</p></div></aside>';
