@@ -9,6 +9,15 @@ const shiftNotes=[
 function handoverCard(label,clue,inside){
   return '<details class="handover"><summary>'+label+'<small>'+clue+'</small></summary><p>'+inside+'</p></details>';
 }
+function volunteerContactList(){
+  return `<section class="volunteer-rota" aria-label="Clydebeat volunteer contact list">
+    <div class="rota-heading"><strong>Clydebeat crew</strong><small>Opening day · Shift contacts</small></div>
+    <ul>
+      <li><span class="rota-initials" aria-hidden="true">RK</span><div><strong>Rory Kerr</strong><small>Harbour Gate</small><span>07700 900126</span></div></li>
+      <li><span class="rota-initials" aria-hidden="true">LG</span><div><strong>Leila Grant</strong><small>Box office</small><span>07700 900182</span></div></li>
+    </ul>
+  </section>`;
+}
 function shiftEvidence(index){
   if(index===0)return '<clydebeat-gate></clydebeat-gate><aside class="desk-evidence"><h3>Morning handover</h3><p>The crew also needs help with an unexpected password request, a volunteer list and the booking website. Open each note, then make your recommendations below.</p><div class="handover-grid">'+
     `<details class="handover"><summary>Password request<small>Box office · Email shown by Maya</small></summary>
@@ -22,7 +31,7 @@ function shiftEvidence(index){
       </article>
       <p><strong>Help desk note</strong><br>Maya showed us this email before replying. We didn’t send it. What is the sender trying to get, and what should Maya do?</p>
     </details>`+
-    handoverCard('Volunteer contact list','Festival organiser','“I keep volunteers’ names and mobile numbers together so I can tell them if a shift moves. This list is for the organisers who manage the shifts.”')+
+    '<details class="handover"><summary>Volunteer contact list<small>Festival organiser · Opening day</small></summary>'+volunteerContactList()+'<p><strong>Organiser’s note</strong><br>“If the Harbour Gate opens early, I need to ring Rory to change his shift. Who else needs to see his mobile number?”</p></details>'+
     handoverCard('Ticket booking site','Box office · Website down now','<strong>What has happened:</strong> The Clydebeat website is down right now. Visitors cannot read the event information or buy tickets online. Some may think the festival is poorly organised and lose confidence in it.')+'</div></aside>';
   if(index===1)return '<aside class="desk-evidence"><h3>Three notes from the crew</h3><div class="crew-notes"><p><b>Booking desk</b> Three volunteers use one account. The activity log shows “crew” beside a changed booking.</p><p><b>Contact sheet</b> The volunteer sheet pairs names with mobile numbers. Its link currently opens for anyone.</p><p><b>Gate tablet</b> An update fixes a known fault. The tablet still shows “Update pending”.</p></div><clydebeat-contact-sheet></clydebeat-contact-sheet></aside>';
   if(index===2)return '<aside class="desk-evidence"><h3>Crew chat</h3><div class="chat-bubble"><b>Euan · to you</b><p>Mairi used the festival’s ticket collection tablet and walked away without signing out. Can you try changing her booking to see if the account is safe? We can change it back.</p></div><details class="mini-demo"><summary>Open your decision card</summary><dl class="decision-card"><dt>Stop</dt><dd>Leave the booking untouched while you decide.</dd><dt>Check</dt><dd>Who owns the account? Who has given permission?</dd><dt>Choose</dt><dd>Choose an action you are allowed to take.</dd><dt>Tell</dt><dd>Who can secure the account without sharing the details?</dd></dl></details></aside>';
@@ -134,7 +143,7 @@ class ClydebeatContactSheet extends HTMLElement {
     this.querySelector('[data-open]').onclick = () => {
       access.disabled = false;
       if (access.value === 'any') {
-        result.innerHTML = '<p><strong>List opened.</strong> The visitor can see who is on shift and how to contact them.</p><dl><dt>Fictional volunteer</dt><dd>Rory Kerr · Harbour Gate · 07700 900126</dd><dt>Fictional volunteer</dt><dd>Leila Grant · Box office · 07700 900182</dd></dl>';
+        result.innerHTML = '<p><strong>List opened.</strong> The visitor can see who is on shift and how to contact them.</p>' + volunteerContactList();
         prompt.textContent = 'Choose “Named crew members only”, then open the same link again.';
       } else {
         result.innerHTML = '<p><strong>Access denied.</strong> This visitor is outside the crew. The link still works for named crew members.</p>';
